@@ -1,0 +1,26 @@
+@import '../../common/variable';
+
+.btn_wrapper{
+    margin: 40px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.control_btn{
+    width:58px;
+    height: 58px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: $Pink;
+    color: $Black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:last-child{
+        background-color: $Grey;
+        color: $White;
+        margin-left: 50px;
+    }
+}

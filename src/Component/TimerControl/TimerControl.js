@@ -1,3 +1,4 @@
+import style from './TimerControl.module.scss'
 import { useState } from "react"
 //Component
 import BtnPlayStop from "./BtnPlayStop/BtnPlayStop"
@@ -26,7 +27,7 @@ const TimerControl = ({setTimer,sessionLength,setOnSession}) => {
     }
     
   return (
-    <div>
+    <div className={style.btn_wrapper}>
         <BtnPlayStop controlTimer={controlTimer} intervalId={intervalId}/>
         <BtnReset reset={reset}/>
     </div>

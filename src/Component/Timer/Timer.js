@@ -3,22 +3,22 @@ import 'react-circular-progressbar/dist/styles.css';
 import { formatTime } from "../../common/formatTime"
 
 
+
 const Timer = ({timer,onSession,breakLength,sessionLength}) => {
     
     const circleStyle = { pathTransitionDuration: 0, 
-                          pathColor: 'rgb(73, 73, 73)',
-                          trailColor: 'yellow',
-                          trailWidth:6,
+                          pathColor: '#FDC592',
+                          trailColor: '#373737',
                           strokeLinecap: 'butt',
                         }
   
     
     return (
     <div>
-        <CircularProgressbarWithChildren value={timer} minValue={0} maxValue={onSession ? sessionLength : breakLength} strokeWidth={1} counterClockwise={true}   styles={buildStyles(circleStyle)}> 
-           <h3>{onSession ? 'Stay Focused': 'Take a Break'}</h3>
+        <CircularProgressbarWithChildren value={timer} minValue={0} maxValue={onSession ? sessionLength : breakLength} strokeWidth={1} styles={buildStyles(circleStyle)}> 
+           <p>{onSession ? 'Stay Focused': 'Take a Break'}</p>
            <h1>{formatTime(timer)}</h1>
-           <h3>{onSession ? 'Session' : 'Break'}</h3>
+           <p>{onSession ? 'Session' : 'Break'}</p>
         </CircularProgressbarWithChildren>
     </div>
   )
