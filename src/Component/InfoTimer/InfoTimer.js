@@ -4,8 +4,9 @@ import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { faMugSaucer } from '@fortawesome/free-solid-svg-icons'
 import style from './InfoTimer.module.scss'
 
-const InfoTimer = ({sessionLength,breakLength}) => {
-
+const InfoTimer = ({obj}) => {
+  const {sessionLength,breakLength} = obj
+  
   const {info_wrapper,info} = style
   
   return (

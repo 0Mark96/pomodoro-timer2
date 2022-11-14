@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import classnames from 'classnames'
 import alarm from './assets/audio/alarm.mp3'
 import style from './App.module.scss'
+
 //component
 import Timer from "./Component/Timer/Timer";
 import TimerControl from "./Component/TimerControl/TimerControl";
 import Setting from "./Component/Setting/Setting";
 import BtnOpenSet from "./Component/BtnOpenSet/BtnOpenSet";
 import InfoTimer from "./Component/InfoTimer/InfoTimer";
+
+
 
 function App() {
   const [timer,setTimer]=useState(25 * 60)
@@ -16,7 +19,7 @@ function App() {
   const [onSession,setOnSession] = useState(true)
   const [openSetting,setOpenSetting] = useState(false)
 
-  //
+  //change timer when set session
   useEffect(()=>{
     setTimer(sessionLength)
     setOnSession(true)
@@ -39,21 +42,20 @@ function App() {
   return (
     <div className={style.app}>
       
-      <main className={classnames(style.main_content,{[style.main_opacity]:openSetting})} onClick={()=>{if(openSetting){setOpenSetting(false)}}}>
+      <main className={classnames(style.main_content,{[style.main_opacity]:openSetting})} 
+            onClick={()=>{openSetting && setOpenSetting(false)}}>
+        
           <BtnOpenSet setOpenSetting={setOpenSetting}/>
-          <Timer timer={timer} onSession={onSession} breakLength={breakLength} sessionLength={sessionLength}/>
-          <TimerControl setTimer={setTimer} sessionLength={sessionLength} setOnSession={setOnSession}/> 
-          <InfoTimer breakLength={breakLength} sessionLength={sessionLength}/>  
+          <Timer obj={{timer,onSession,breakLength,sessionLength}}/>
+          <TimerControl obj={{sessionLength,setTimer,setOnSession}}/> 
+          <InfoTimer obj={{breakLength,sessionLength}}/>  
+      
       </main>
-     
-      <Setting sessionLength={sessionLength} 
-               breakLength={breakLength}
-               setSessionLength={setSessionLength}
-               setBreakLength={setBreakLength}
-               setTimer={setTimer}
-               openSetting={openSetting}
-               />
+      
+      <Setting obj={{sessionLength,breakLength,setSessionLength,
+                       setBreakLength,openSetting}} />
     </div>
+
   );
 }
 

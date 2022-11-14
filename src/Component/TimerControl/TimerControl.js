@@ -4,8 +4,11 @@ import { useState } from "react"
 import BtnPlayStop from "./BtnPlayStop/BtnPlayStop"
 import BtnReset from "./BtnReset/BtnReset"
 
-const TimerControl = ({setTimer,sessionLength,setOnSession}) => {
-    const [intervalId,setIntervalId] = useState(0)
+const TimerControl = ({obj}) => {
+   const {sessionLength,setTimer,setOnSession} = obj
+   
+   //start interval and stop interval from btn
+   const [intervalId,setIntervalId] = useState(0)
 
     const controlTimer = () => {
       if(intervalId){

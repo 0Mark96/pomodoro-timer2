@@ -3,12 +3,13 @@ import classnames from 'classnames'
 //component
 import SetTime from "./SetTime/SetTime"
 
-const Setting = ({sessionLength,breakLength,setSessionLength,setBreakLength,setOpenSetting,setTimer,openSetting}) => {
-     
-    const {setting_menu_cont,setting_open,setting_title} = style
+const Setting = ({obj}) => {
     
+    const {sessionLength,breakLength,setSessionLength,setBreakLength,openSetting}=obj
+    
+    const {setting_menu_cont,setting_open,setting_title} = style
+    // set session and break state
     const changeLength = (amount,type)=>{
-   
         if(type === 'breakLength'){
           if (breakLength <= 60 && amount < 0){ 
             return 
