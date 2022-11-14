@@ -11,6 +11,7 @@
         display: inline-flex;
         align-items: center;
         
+        padding: 1px;
         border: 1px solid $Pink;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
@@ -20,7 +21,7 @@
             width: 22px;
             height: 22px;
         
-            font-size: 16px;
+            font-size: 20px;
             border-radius: 50%;
             border: none;
             background-color: transparent;

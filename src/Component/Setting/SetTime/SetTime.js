@@ -10,10 +10,10 @@ const SetTime = ({type,title,time,changeLength}) => {
 
   return (
     <div className={setting_wrapper}>
-    <p>{title}</p>
+    <h4>{title}</h4>
     <div className={setting}>
       <button className={btn} onClick={()=>changeLength(60,type)}><FontAwesomeIcon icon={faCaretUp}/></button>
-      <p className={time_num}>{formatTime(time)}</p>
+      <h4 className={time_num}>{formatTime(time)}</h4>
       <button className={btn} onClick={()=>changeLength(-60,type)}><FontAwesomeIcon icon={faCaretDown}/></button>
     </div>
   </div>

@@ -27,7 +27,7 @@ const Setting = ({sessionLength,breakLength,setSessionLength,setBreakLength,setO
 
   return (
     <div className={classnames(setting_menu_cont,{[setting_open]:openSetting})}>
-        <h3 className={setting_title}>Timer setting</h3>
+        <h2 className={setting_title}>Timer setting</h2>
         <SetTime type='sessionLength' title='Session Length' changeLength={changeLength} time={sessionLength}/>
         <SetTime type='breakLength' title='Break Length'  changeLength={changeLength} time={breakLength}/>
     </div>
