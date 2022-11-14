@@ -6,10 +6,9 @@
     box-sizing: border-box;
 }
 body{
-    min-height: 100vh;
-    background: linear-gradient(rgb(37, 37, 37),$Black 70%);
     color:$White;
     font-family: 'PT Serif', serif;
+    background:linear-gradient($White,$Pink);
 }
 h1{
     font-size: 58px;

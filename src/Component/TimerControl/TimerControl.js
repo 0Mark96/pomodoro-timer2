@@ -15,7 +15,7 @@ const TimerControl = ({setTimer,sessionLength,setOnSession}) => {
       }
       const newInterval = setInterval(()=>{
           setTimer(prev => prev - 1)
-      },200)
+      },1000)
       setIntervalId(newInterval)
     }
     

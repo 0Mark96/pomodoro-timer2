@@ -9,9 +9,12 @@
 
 .info{
     border-bottom: 2px solid $Pink;
-    padding: 10px;
+    padding: 5px;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    p{
+        margin-top: 2px;
+    }
 }

@@ -1,8 +1,11 @@
-
+import style from './Setting.module.scss'
+import classnames from 'classnames'
 //component
 import SetTime from "./SetTime/SetTime"
+
 const Setting = ({sessionLength,breakLength,setSessionLength,setBreakLength,setOpenSetting,setTimer,openSetting}) => {
      
+    const {setting_menu_cont,setting_open,setting_title} = style
     
     const changeLength = (amount,type)=>{
    
@@ -23,7 +26,8 @@ const Setting = ({sessionLength,breakLength,setSessionLength,setBreakLength,setO
 
 
   return (
-    <div style={{display: openSetting ? 'block' : 'none'}}>
+    <div className={classnames(setting_menu_cont,{[setting_open]:openSetting})}>
+        <h3 className={setting_title}>Timer setting</h3>
         <SetTime type='sessionLength' title='Session Length' changeLength={changeLength} time={sessionLength}/>
         <SetTime type='breakLength' title='Break Length'  changeLength={changeLength} time={breakLength}/>
     </div>

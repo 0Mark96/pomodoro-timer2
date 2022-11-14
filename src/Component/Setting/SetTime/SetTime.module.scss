@@ -1,0 +1,37 @@
+@import '../../../common/variable';
+
+.setting_wrapper{
+    // align-self: flex-start;
+    margin-top: 40px;
+    width: 90%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    .setting{
+        display: inline-flex;
+        align-items: center;
+        
+        border: 1px solid $Pink;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;        
+        .btn{
+            width: 22px;
+            height: 22px;
+        
+            font-size: 16px;
+            border-radius: 50%;
+            border: none;
+            background-color: transparent;
+            color: $White;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .time_num{
+            margin:0px 8px;
+        }
+    }
+}

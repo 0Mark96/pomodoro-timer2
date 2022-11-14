@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import classnames from 'classnames'
 import alarm from './assets/audio/alarm.mp3'
 import style from './App.module.scss'
-
 //component
 import Timer from "./Component/Timer/Timer";
 import TimerControl from "./Component/TimerControl/TimerControl";
@@ -10,14 +10,13 @@ import BtnOpenSet from "./Component/BtnOpenSet/BtnOpenSet";
 import InfoTimer from "./Component/InfoTimer/InfoTimer";
 
 function App() {
-  const [timer,setTimer]=useState(2 * 60)
-  
-  const [sessionLength,setSessionLength] = useState(2 * 60) 
-  const [breakLength,setBreakLength] = useState(1 * 60)
+  const [timer,setTimer]=useState(25 * 60)
+  const [sessionLength,setSessionLength] = useState(25 * 60) 
+  const [breakLength,setBreakLength] = useState(5 * 60)
   const [onSession,setOnSession] = useState(true)
-
   const [openSetting,setOpenSetting] = useState(false)
 
+  //
   useEffect(()=>{
     setTimer(sessionLength)
     setOnSession(true)
@@ -38,9 +37,9 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className={style.app}>
       
-      <main className={style.main_content} onClick={()=>{if(openSetting){setOpenSetting(false)}}}>
+      <main className={classnames(style.main_content,{[style.main_opacity]:openSetting})} onClick={()=>{if(openSetting){setOpenSetting(false)}}}>
           <BtnOpenSet setOpenSetting={setOpenSetting}/>
           <Timer timer={timer} onSession={onSession} breakLength={breakLength} sessionLength={sessionLength}/>
           <TimerControl setTimer={setTimer} sessionLength={sessionLength} setOnSession={setOnSession}/> 
