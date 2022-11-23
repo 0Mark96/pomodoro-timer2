@@ -3,9 +3,7 @@ import classnames from 'classnames'
 //component
 import SetTime from "./SetTime/SetTime"
 
-const Setting = ({obj}) => {
-    
-    const {sessionLength,breakLength,setSessionLength,setBreakLength,openSetting}=obj
+const Setting = ({sessionLength,breakLength,setSessionLength,setBreakLength,openSetting}) => {
     
     const {setting_menu_cont,setting_open,setting_title} = style
     // set session and break state

@@ -21,9 +21,17 @@ function App() {
 
   //change timer when set session
   useEffect(()=>{
-    setTimer(sessionLength)
-    setOnSession(true)
-   },[sessionLength])
+    if(onSession){
+      setTimer(sessionLength)
+    }
+
+   },[sessionLength,onSession])
+
+   useEffect(()=>{
+   if(!onSession){
+    setTimer(breakLength)
+  }
+   },[onSession,breakLength])
 
   // toggle timer when 0
   useEffect(()=>{
@@ -46,14 +54,26 @@ function App() {
             onClick={()=>{openSetting && setOpenSetting(false)}}>
         
           <BtnOpenSet setOpenSetting={setOpenSetting}/>
-          <Timer obj={{timer,onSession,breakLength,sessionLength}}/>
-          <TimerControl obj={{sessionLength,setTimer,setOnSession}}/> 
-          <InfoTimer obj={{breakLength,sessionLength}}/>  
+          
+          <Timer timer={timer} 
+                 onSession={onSession} 
+                 breakLength={breakLength} 
+                 sessionLength={sessionLength}/>
+         
+          <TimerControl sessionLength={sessionLength} 
+                        setTimer={setTimer} 
+                        setOnSession={setOnSession}/> 
+         
+          <InfoTimer breakLength={breakLength} 
+                     sessionLength={sessionLength}/>  
       
       </main>
       
-      <Setting obj={{sessionLength,breakLength,setSessionLength,
-                       setBreakLength,openSetting}} />
+      <Setting sessionLength={sessionLength} 
+               breakLength={breakLength} 
+               setSessionLength={setSessionLength}
+               setBreakLength={setBreakLength} 
+               openSetting={openSetting} />
     </div>
 
   );

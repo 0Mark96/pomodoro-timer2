@@ -1,12 +1,12 @@
 @import '../../../common/variable';
 
 .setting_wrapper{
-    // align-self: flex-start;
     margin-top: 40px;
     width: 90%;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
+    font-weight: 700;
     .setting{
         display: inline-flex;
         align-items: center;

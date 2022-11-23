@@ -2,8 +2,7 @@ import { CircularProgressbarWithChildren,buildStyles} from 'react-circular-progr
 import 'react-circular-progressbar/dist/styles.css';
 import { formatTime } from "../../common/formatTime"
 
-const Timer = ({obj}) => {
-    const {timer,onSession,breakLength,sessionLength} = obj
+const Timer = ({timer,onSession,breakLength,sessionLength}) => {
     
     const circleStyle = { pathTransitionDuration: 0, 
                           pathColor: '#FDC592',
