@@ -4,21 +4,20 @@ import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { faMugSaucer } from '@fortawesome/free-solid-svg-icons'
 import style from './InfoTimer.module.scss'
 
-const InfoTimer = ({sessionLength,breakLength}) => {
+const InfoTimer = ({sessionLength,breakLength,onSession}) => {
 
   
-  const {info_wrapper,info} = style
+  const {info_wrapper,info,time,title} = style
   
   return (
     <div className={info_wrapper}>
+     
         <div className={info}>
-            <FontAwesomeIcon icon={faBriefcase}/>
-            <p>{formatTime(sessionLength)}</p>
+           <p className={title}>Next {onSession ? 'break' : 'session'}</p>
+            <FontAwesomeIcon icon={onSession ? faMugSaucer : faBriefcase }/>
+            <p className={time}>{formatTime(onSession ? breakLength : sessionLength)}</p>
         </div>
-        <div className={info}>
-            <FontAwesomeIcon icon={faMugSaucer}/>
-            <p>{formatTime(breakLength)}</p>
-        </div>
+      
     </div>
   )
 }

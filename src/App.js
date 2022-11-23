@@ -18,30 +18,30 @@ function App() {
   const [breakLength,setBreakLength] = useState(5 * 60)
   const [onSession,setOnSession] = useState(true)
   const [openSetting,setOpenSetting] = useState(false)
-
-  //change timer when set session
+  const [maxValue,setMaxValue]=useState()
+  const [timerOn,setTimerOn]=useState(false)
+ 
+  //change timer when set session and timer is not active
   useEffect(()=>{
-    if(onSession){
+    if(!timerOn){
       setTimer(sessionLength)
+      setOnSession(true)
+      setMaxValue(sessionLength)
     }
+   },[sessionLength,onSession,timerOn])
 
-   },[sessionLength,onSession])
-
-   useEffect(()=>{
-   if(!onSession){
-    setTimer(breakLength)
-  }
-   },[onSession,breakLength])
 
   // toggle timer when 0
   useEffect(()=>{
-      if(timer <= 0 && onSession){
+      if(timer <= 0 && onSession ){
         setTimer(breakLength)
         setOnSession(false)
+        setMaxValue(breakLength)
         new Audio(alarm).play()
       } else if(timer <= 0 && !onSession){
         setTimer(sessionLength)
         setOnSession(true)
+        setMaxValue(sessionLength)
         new Audio(alarm).play()
       }
   },[timer,breakLength,sessionLength,onSession])
@@ -52,20 +52,25 @@ function App() {
       
       <main className={classnames(style.main_content,{[style.main_opacity]:openSetting})} 
             onClick={()=>{openSetting && setOpenSetting(false)}}>
-        
           <BtnOpenSet setOpenSetting={setOpenSetting}/>
           
           <Timer timer={timer} 
                  onSession={onSession} 
                  breakLength={breakLength} 
-                 sessionLength={sessionLength}/>
+                 sessionLength={sessionLength}
+                 maxValue={maxValue}/>
          
           <TimerControl sessionLength={sessionLength} 
                         setTimer={setTimer} 
-                        setOnSession={setOnSession}/> 
+                        setOnSession={setOnSession}
+                        setMaxValue={setMaxValue}
+                        setTimerOn={setTimerOn}
+                        /> 
          
           <InfoTimer breakLength={breakLength} 
-                     sessionLength={sessionLength}/>  
+                     sessionLength={sessionLength}
+                     timerOn={timerOn}
+                     onSession={onSession}/>  
       
       </main>
       
@@ -73,7 +78,8 @@ function App() {
                breakLength={breakLength} 
                setSessionLength={setSessionLength}
                setBreakLength={setBreakLength} 
-               openSetting={openSetting} />
+               openSetting={openSetting} 
+               />
     </div>
 
   );

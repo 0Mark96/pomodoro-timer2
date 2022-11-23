@@ -23,7 +23,6 @@ const Setting = ({sessionLength,breakLength,setSessionLength,setBreakLength,open
       }
     
 
-
   return (
     <div className={classnames(setting_menu_cont,{[setting_open]:openSetting})}>
         <h2 className={setting_title}>Timer setting</h2>
